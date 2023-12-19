@@ -1,3 +1,38 @@
 div{
     margin-top: 200pxl;
 }
+
+#mobilesContainer{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+#mobilesContainer .mobile{
+    width: 300px;
+    height: 500px;
+    margin: 1rem;
+    box-shadow: 0px 0px 19px 0px lightgrey;
+    border-radius: 2rem;
+    padding: 1rem;
+}
+
+#mobilesContainer .mobile .mobileName{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+    height: 40%;
+    background-color: rgb(108, 108, 122);
+    color: wheat;
+    margin: auto;
+}
+
+#mobilesContainer .mobile .mobileDesc{
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    justify-content: space-between;
+
+}
