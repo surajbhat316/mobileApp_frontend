@@ -115,6 +115,40 @@ export default function CartPage() {
     setTotalPrice(sum);
   }
 
+  async function handleMakePayment(e,cart){
+    e.preventDefault();
+    console.log(e);
+    console.log(cart);
+
+    let cartObject = [];
+    cart.forEach((item) => {
+      let obj = {
+        product_id: item.product_id,
+        name: item.name,
+        quantity: item.quantity,
+        price: item.price,
+      }
+      cartObject.push(obj);
+    })
+
+    console.log(cartObject);
+
+    let res = await fetch("http://localhost:8000/order/placeOrder", {
+                method: "POST",
+                credentials: "include",
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+                body:JSON.stringify(cartObject),
+                mode: "cors"
+            });
+
+    let data = await res.json();
+    console.log(data)
+    setCart([]);
+    setTotalPrice(0);
+  }
 
   return (
     <div id='cartContainer'>
@@ -140,7 +174,7 @@ export default function CartPage() {
           Total Price 
         </p>
         <div>
-          <button className='btn btn-primary' disabled={totalPrice ===0 ?true:false}>Pay {totalPrice}</button>
+          <button onClick={(e) => handleMakePayment(e, cart)} className='btn btn-primary' disabled={totalPrice ===0 ?true:false}>Pay {totalPrice}</button>
         </div>
       </div>
     </div>
