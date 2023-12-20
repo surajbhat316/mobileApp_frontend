@@ -16,6 +16,31 @@ export default function HomePage() {
         getMobiles();
     },[]);
 
+    const handleAddToCart = async (e, id, price, name)=>{
+
+        if(id && price && name){
+            let res = await fetch("http://localhost:8000/cart/addItem", {
+                method: "POST",
+                credentials: "include",
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+                body:JSON.stringify({
+                    id:id,
+                    price: price,
+                    name: name
+                }),
+                mode: "cors"
+            });
+
+            let data = await res.json();
+            console.log(data)
+            return;
+        }
+
+
+    }
     return (
         <div id='mobilesContainer'>
 
@@ -44,7 +69,7 @@ export default function HomePage() {
                                 <b>Type </b>{mobile.type}
                             </p>
 
-                            <button className='btn btn-primary'>Add to cart</button>
+                            <button onClick={(e) => handleAddToCart(e, mobile._id,mobile.price, mobile.name)} className='btn btn-primary'>Add to cart</button>
                         </div>
                     </div>
                 )
