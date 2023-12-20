@@ -5,12 +5,18 @@ export default function CartPage() {
 
 
   const [cart, setCart] = useState([]);
+  const [totalPrice, setTotalPrice] = useState(0);
   useEffect(()=>{
 
     async function getCartItems(){
+      let sum = 0;
       let res = await fetch("http://localhost:8000/cart/");
       let data = await res.json();
       console.log(data)
+      data.cartItems.forEach((item)=> {
+          sum += item.price;
+      })
+      setTotalPrice(sum);
       setCart([...data.cartItems])
     }
 
@@ -45,7 +51,7 @@ export default function CartPage() {
       }
       return item
     })
-
+    calculateTotalPrice(updatedCart);
     setCart([...updatedCart])
   }
 
@@ -87,6 +93,7 @@ export default function CartPage() {
     })
     console.log(updatedCart)
     let newUpdatedList = removeNulls(updatedCart);
+    calculateTotalPrice(newUpdatedList);
     setCart([...newUpdatedList])
   }
 
@@ -98,6 +105,14 @@ export default function CartPage() {
       }
     }
     return newUpdatedList;
+  }
+
+  function calculateTotalPrice(updatedCart){
+    let sum = 0;
+    updatedCart.forEach((item) =>{
+      sum += item.price;
+    })
+    setTotalPrice(sum);
   }
 
 
@@ -120,6 +135,14 @@ export default function CartPage() {
           </div>
         )
       })}
+      <div id='totalPriceContainer'>
+        <p>
+          Total Price 
+        </p>
+        <div>
+          <button className='btn btn-primary' disabled={totalPrice ===0 ?true:false}>Pay {totalPrice}</button>
+        </div>
+      </div>
     </div>
   )
 }

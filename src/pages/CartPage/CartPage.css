@@ -42,3 +42,21 @@
     justify-content: space-around;
     margin-top: 1rem;
 }
+
+
+#totalPriceContainer{
+    display: flex;
+    justify-content: space-between;
+    font-weight: bolder;
+    font-size: 1.2rem;
+    background-color: yellow;
+    position: fixed;
+    bottom: 0px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90vw;
+    height: auto;
+    padding: 2rem;
+    color: wheat;
+    background-color: rgb(148, 157, 164);
+}
