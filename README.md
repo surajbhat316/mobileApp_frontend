@@ -1,3 +1,40 @@
+<h2>Mobile App</h2>
+
+<p>To run this Application Follow the following steps</p>
+
+<ol>
+    <li>
+        Create a new Folder in your System
+    </li>
+    <li>
+        Open the folder in the terminal
+    </li>
+    <li>
+        Run git init 
+    </li>
+    <li>
+        Run git remote add origin https://github.com/surajbhat316/mobileApp_frontend.git
+    </li>
+    <li>
+        Run git branch -M main
+    </li>
+
+    <li>
+        Run git pull https://github.com/surajbhat316/mobileApp_frontend.git
+    </li>
+
+    <li>
+        The above line will fetch all the files in the folder that we created initially
+    </li>
+    <li>
+        In the terminal run npm install to get the node_modules folder
+    </li>
+    <li>
+        Finally Run npm start to run the frontend part of the application
+    </li>
+</ol>
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
