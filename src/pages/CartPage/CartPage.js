@@ -2,6 +2,9 @@ import React, { useEffect, useState } from 'react'
 import "./CartPage.css";
 import "./CartPage_media.css";
 
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 export default function CartPage() {
 
 
@@ -149,6 +152,7 @@ export default function CartPage() {
     console.log(data)
     setCart([]);
     setTotalPrice(0);
+    toast("Order Placed successfully !")
   }
 
   return (

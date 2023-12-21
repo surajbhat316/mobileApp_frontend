@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import "./HomePage.css";
 
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 export default function HomePage() {
 
 
@@ -16,6 +19,7 @@ export default function HomePage() {
             setMobiles([...data.mobiles]);
         }
         getMobiles();
+        toast("Welcome to Mobile App !")
     },[]);
 
     const handleAddToCart = async (e, id, price, name)=>{
@@ -38,6 +42,7 @@ export default function HomePage() {
 
             let data = await res.json();
             console.log(data)
+            toast("Item Added To Cart !")
             return;
         }
 
@@ -74,6 +79,7 @@ export default function HomePage() {
             let data = await res.json();
             console.log(data);
             setMobiles([...data.mobiles])
+            toast(data.mobiles.length +" mobiles found")
         }
     }
 

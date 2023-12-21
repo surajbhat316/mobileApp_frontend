@@ -4,6 +4,8 @@ import HomePage from "./pages/HomePage/HomePage";
 import CartPage from "./pages/CartPage/CartPage";
 import OrdersPage from "./pages/OrdersPage/OrdersPage";
 
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
 
@@ -16,6 +18,7 @@ function App() {
   ]);
   return (
     <div>
+      <ToastContainer />
       <RouterProvider router={router} />
     </div>
   );
