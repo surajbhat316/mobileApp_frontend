@@ -18,11 +18,9 @@
     <li>
         Run git branch -M main
     </li>
-
     <li>
         Run git pull https://github.com/surajbhat316/mobileApp_frontend.git
     </li>
-
     <li>
         The above line will fetch all the files in the folder that we created initially
     </li>
