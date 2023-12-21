@@ -36,3 +36,21 @@ div{
     justify-content: space-between;
 
 }
+
+#formContainer{
+    width: 50vw;
+    margin: auto;
+}
+
+#formContainer form{
+    display: flex;
+    flex-direction: column;
+}
+#formContainer form div{
+    margin: 0.5rem;
+}
+
+#formContainer form .btnContainer{
+    display: flex;
+    justify-content: center;
+}
