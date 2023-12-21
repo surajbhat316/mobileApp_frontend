@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import "./CartPage.css";
+import "./CartPage_media.css";
 
 export default function CartPage() {
 
